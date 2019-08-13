@@ -56,7 +56,7 @@ def _cnn_model_fn(features, labels, mode, params):
         filters=96,
         kernel_size=[11,11,11],
         strides=4,
-        padding='same',
+        padding='valid',
         activation=tf.nn.relu
     )
     pool1 = tf.layers.max_pooling3d(
@@ -67,7 +67,7 @@ def _cnn_model_fn(features, labels, mode, params):
         filters=256,
         kernel_size=[5,5,5],
         strides=1,
-        padding='same',
+        padding='valid',
         activation=tf.nn.relu
     )
     pool2 = tf.layers.max_pooling3d(
@@ -78,7 +78,7 @@ def _cnn_model_fn(features, labels, mode, params):
         filters=384,
         kernel_size=[3,3,3],
         strides=2,
-        padding='same',
+        padding='valid',
         activation=tf.nn.relu
     )
     conv4 = tf.layers.conv3d(
@@ -86,7 +86,7 @@ def _cnn_model_fn(features, labels, mode, params):
         filters=384,
         kernel_size=[1,1,1],
         strides=2,
-        padding='same',
+        padding='valid',
         activation=tf.nn.relu
     )
     conv5 = tf.layers.conv3d(
@@ -94,7 +94,7 @@ def _cnn_model_fn(features, labels, mode, params):
         filters=256,
         kernel_size=[1,1,1],
         strides=2,
-        padding='same',
+        padding='valid',
         activation=tf.nn.relu
     )
     pool3 = tf.layers.max_pooling3d(
