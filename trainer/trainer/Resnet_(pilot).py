@@ -141,6 +141,6 @@ def _cnn_model_fn(input_shape=(256, 256, 256, 1), classes=6):
     model = Model(inputs = X_input, outputs = X, name='ResNet50')
 
     return model
-model = ResNet50(input_shape = (64, 64, 3), classes = 6)
+model = _cnn_model_fn(input_shape = (64, 64, 3), classes = 6)
 model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
